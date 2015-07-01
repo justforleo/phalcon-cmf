@@ -1,0 +1,360 @@
+<style>
+	.url,.name{width:235px;}
+	.name input{display: none;height: 20px;}
+	.url input{display: none;height: 20px;}
+	.type input{display: none;height: 20px;width:45px;}
+</style>
+				<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="#">主页</a>
+							</li>
+
+							<li>
+								<a href="#">栏目类型</a>
+							</li>
+							<li class="active">栏目类型列表</li>
+						</ul><!-- .breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<i class="icon-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- #nav-search -->
+					</div>
+
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								栏目类型
+								<small>
+									<i class="icon-double-angle-right"></i>
+									数据列表 
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+
+								<div class="row">
+									<div class="col-xs-12">
+	
+											<div class="modal-footer no-margin-top">
+												<a class="btn btn-sm btn-primary pull-left" data-dismiss="modal" href="add">
+													<i class="icon-edit-sign"></i>
+													添加
+												</a>
+												<button post="<?=$disableUrl?>" class="btn btn-sm btn-danger pull-left" data-dismiss="modal">
+													<i class="icon-ban-circle"></i>
+													禁用
+												</button>
+												<a href="" class="btn btn-sm btn-success pull-left" data-dismiss="modal">
+													<i class="icon-refresh"></i>
+													刷新
+												</a>
+												<button post="<?=$deleteUrl?>" class="deleteBtn btn btn-sm btn-danger pull-left" data-dismiss="modal">
+													<i class="icon-trash"></i>
+													删除
+												</button>
+												<ul class="pagination pull-right no-margin">
+													<li class="prev disabled">
+														<a href="#">
+															<i class="icon-double-angle-left"></i>
+														</a>
+													</li>
+													<li class="active">
+														<a href="#">1</a>
+													</li>
+
+													<li>
+														<a href="#">2</a>
+													</li>
+
+													<li>
+														<a href="#">3</a>
+													</li>
+
+													<li class="next">
+														<a href="#">
+															<i class="icon-double-angle-right"></i>
+														</a>
+													</li>
+												</ul>
+											</div><!-- URL分页 -->
+											
+										<div class="table-responsive">
+											<table id="sample-table-2" class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+														<th class="center">
+															<label>
+																<input type="checkbox" class="ace" id="ace" />
+																<span class="lbl"></span>
+															</label>
+														</th>
+														<th>
+															<i class="icon-time bigger-110 hidden-480"></i>
+															索引
+														</th>
+														<th>
+															<i class="icon-time bigger-110 hidden-480"></i>
+															排序
+														</th>
+														<th>
+															<i class="icon-time bigger-110 hidden-480"></i>
+															栏目名字
+														</th>
+														<th>
+															<i class="icon-time bigger-110 hidden-480"></i>
+															栏目地址
+														</th>
+
+														<th>
+															<i class="icon-time bigger-110 hidden-480"></i>
+															添加时间
+														</th>
+														<th class="hidden-480">开启</th>
+
+														<th></th>
+													</tr>
+												</thead>
+
+												<tbody>
+													<?php foreach($results as $result): ?>
+													<tr>
+														<td class="center">
+															<label>
+																<input hideVal="<?=$result['category_id']?>" type="checkbox" class="ace check" />
+																<span class="lbl"></span>
+															</label>
+														</td>
+														<td>
+															<a href="#"><?=$result['category_id']?></a>
+														</td>
+														<td class="type">
+															<span><?=$result['category_sort']?></span>
+															<input type="text"  value="<?=$result['category_sort']?>">
+														</td>
+														<td class="name">
+															<span>
+																<?=$result['category_name']?>
+															</span>
+															<input type="text" value="<?=$result['category_name']?>">
+														</td>
+														<td class="url">
+															<span>
+																<?=$result['category_url']?>
+															</span>
+															<input type="text"  value="<?=$result['category_url']?>">
+														</td>
+														<td><?=$result['category_addtime']?></td>
+
+														<td class="hidden-480">
+															<?=$result['category_disable']==1?'<span class="label label-sm label-success">正常</span>':'<span class="label label-sm label-warning">禁用</span>';?>
+														</td>
+
+														<td>
+															<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+																<a class="green editBtn" hideVal="<?=$result['category_id']?>" href="javascript:void(0)">
+																	<i class="icon-pencil bigger-130"></i>
+																</a>
+																<?php
+																if($result['category_disable']==1)
+																{
+																	echo <<<html
+																	<a class="red disableBtn" hideVal='$result[category_id]' href="javascript:void(0)">
+																		<i class="icon-ban-circle bigger-130"></i>
+																	</a>
+html;
+																}
+																else
+																{
+																	echo <<<html
+																	<a class="red enableBtn" hideVal='$result[category_id]' href="javascript:void(0)">
+																		<i class="icon-gittip bigger-130"></i>
+																	</a>
+html;
+																}
+																?>
+															</div>
+
+				
+														</td>
+													</tr>
+													<?php endforeach; ?>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div><!-- /.modal-content -->
+						</div><!-- /.modal-dialog -->
+					</div><!-- PAGE CONTENT ENDS -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.page-content -->
+	</div><!-- /.main-content -->
+<script>
+	
+
+$(document).ready(function(){
+	$('.url').click(function()
+	{
+		$(this).children('span').css({'display':'none'});
+		$(this).children('input[type="text"]').css({'display':'block'});
+	})
+	$('.name').click(function()
+	{
+		$(this).children('span').css({'display':'none'});
+		$(this).children('input[type="text"]').css({'display':'block'});
+	})
+	$('.type').click(function()
+	{
+		$(this).children('span').css({'display':'none'});
+		$(this).children('input[type="text"]').css({'display':'block'});
+	})
+	$('.editBtn').click(function(){
+		var name = $(this).closest('tr').find('.name').children('input').val();
+		var url = $(this).closest('tr').find('.url').children('input').val();
+		var type = $(this).closest('tr').find('.type').children('input').val();
+		var id = $(this).attr('hideVal');
+		var $this = $(this);
+		$.ajax({
+			url:'<?=$editUrl?>',
+			type:'post',
+			dataType:'json',
+			//async:false,
+			data:{name:name,url:url,id:id,type:type},
+			success:function(data)
+			{
+				if(data.type == 'success')
+				{
+					$this.closest('tr').find('.name').children('span').css({'display':'block'}).text(name);
+					$this.closest('tr').find('.name').children('input[type="text"]').css({'display':'none'});
+					$this.closest('tr').find('.url').children('span').css({'display':'block'}).text(url);
+					$this.closest('tr').find('.url').children('input[type="text"]').css({'display':'none'});
+					$this.closest('tr').find('.type').children('span').css({'display':'block'}).text(type);
+					$this.closest('tr').find('.type').children('input[type="text"]').css({'display':'none'});
+				}
+				else
+				{
+					var oldName = $this.closest('tr').find('.name').children('span').text().replace(/(^\s+)|(\s+$)/g,"");
+					var oldUrl = $this.closest('tr').find('.url').children('span').text().replace(/(^\s+)|(\s+$)/g,"");
+					var oldtype = $this.closest('tr').find('.type').children('span').text().replace(/(^\s+)|(\s+$)/g,"");
+					$this.closest('tr').find('.name').children('span').css({'display':'block'});
+					$this.closest('tr').find('.name').children('input[type="text"]').css({'display':'none'}).val(oldName);
+					$this.closest('tr').find('.url').children('span').css({'display':'block'});
+					$this.closest('tr').find('.url').children('input[type="text"]').css({'display':'none'}).val(oldUrl);
+					$this.closest('tr').find('.type').children('span').css({'display':'block'});
+					$this.closest('tr').find('.type').children('input[type="text"]').css({'display':'none'}).val(oldtype);
+				}
+			},
+			error:function(data)
+			{
+			}
+		})
+	})
+	$('.disableBtn').click(function(){
+		if($(this).attr('disabled') == 'disabled'){return false;}
+		var url = '<?=$disableUrl?>/id/' + $(this).attr('hideVal') + '/time/<?=$mkTime?>';
+		var $this = $(this);
+		$.ajax({
+			url:url,
+			dataType:'json',
+			success:function(data)
+			{
+				if(data.type == 'success')
+				{
+					$this.parent().parent().prev().children('span').html('禁用');
+					$this.parent().parent().prev().children('span').removeClass('label-success');
+					$this.parent().parent().prev().children('span').addClass('label-warning');
+
+					$this.attr('disabled','disabled')
+				}
+				else
+				{
+					alert(data.msg)
+				}
+				
+			}
+		})
+	})
+	$('.enableBtn').click(function(){
+		if($(this).attr('disabled') == 'disabled'){return false;}
+		var url = '<?=$enableUrl?>/id/' + $(this).attr('hideVal') + '/time/<?=$mkTime?>';
+		var $this = $(this);
+		$.ajax({
+			url:url,
+			dataType:'json',
+			success:function(data)
+			{
+				if(data.type == 'success')
+				{
+					$this.parent().parent().prev().children('span').html('启用');
+					$this.parent().parent().prev().children('span').removeClass('label-warning');
+					$this.parent().parent().prev().children('span').addClass('label-success');
+
+					$this.attr('disabled','disabled')
+				}
+				else
+				{
+					alert(data.msg);
+				}
+				
+			}
+		})
+	})
+	$('#ace').click(function()
+	{
+		if($('.check').attr('checked') == 'checked')
+		{
+			$('.check').attr('checked',false);
+		}
+		else
+		{
+			$('.check').attr('checked',true)
+		}
+	})
+	$('.deleteBtn').click(function()
+	{
+		$('.check').each(function(i){
+			var $this = $(this);
+			if($(this).attr('checked') ==  'checked')
+			{
+				var id = $(this).attr('hideVal');// foreach delete that
+				console.log(id);
+				$.ajax({
+					url:'<?=$deleteUrl?>',
+					type:'post',
+					dataType:'json',
+					data:{id:id},
+					success:function(data)
+					{
+						if(data.type == 'success')
+						{
+							$this.closest('tr').fadeOut();
+							$this.closest('tr').remove();
+						}
+						else
+						{
+							alert(data.msg);
+						}
+						
+					}
+				})
+			}
+		})
+
+	})
+})
+</script>

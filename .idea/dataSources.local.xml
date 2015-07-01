@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - eo_project@127.0.0.1" uuid="75a8e05e-0a80-4604-b0ea-67210523d3fe">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>eo_project.*</schema-pattern>
+      <default-schemas>eo_project.*</default-schemas>
+    </data-source>
+  </component>
+</project>

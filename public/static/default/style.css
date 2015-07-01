@@ -1,0 +1,13 @@
+.max-width{max-width:1024px}
+.layoutWidth{width:1024px;}
+.layoutCenter{margin-left:auto;margin-right:auto}
+.layoutLeft{float:left}
+.layoutRight{float:right}
+.layoutBlock{display:block}
+.clearBoth{clear:both;}
+.overHidden{overflow:hidden;}
+.bannerLeft{width:29%;min-width:300px;float:left}
+@media screen and (max-width: 875px){
+   .bannerRight{display:none} 
+   .bannerLeft{width:98%;padding:0 5px 0 10px;}
+}

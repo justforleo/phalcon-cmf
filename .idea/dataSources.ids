@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - eo_project@127.0.0.1" uuid="75a8e05e-0a80-4604-b0ea-67210523d3fe">
+    <database-info product="MySQL" version="5.6.21" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <schema name="" catalog="eo_project"/>
+    <table name="eo_doc" schema="" catalog="eo_project" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12" remarks="5paH5qGj5ZCN5a2X"/>
+      <column name="addtime" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="edittime" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="uid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="eo_doc_article" schema="" catalog="eo_project" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="pid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="content" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="addtime" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="edittime" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="del" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="eo_doc_index" schema="" catalog="eo_project" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="docId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="pid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="eo_member" schema="" catalog="eo_project" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="VARCHAR" precision="16" scale="0" nullable="false" jdbcType="12" remarks="55u05o6l55SoZW1haWw="/>
+      <column name="password" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="photo" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="addtime" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="disable" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="del" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="level" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MQ=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="eo_member_history" schema="" catalog="eo_project" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="key" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="uid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="type" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="5Y6G5Y+y6K6w5b2V57G75YirIDEu6K+75Lmm77yMMi7mkJzntKI="/>
+      <column name="docId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="docArticleId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="eo_role" schema="" catalog="eo_project" type="TABLE">
+      <column name="role_key" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="role_field" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="eo_role_level" schema="" catalog="eo_project" type="TABLE">
+      <column name="role_key" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="role_level" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="role_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+    </table>
+  </data-source>
+</component>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	    <script>
+	    // $("input[type='checkbox'][class='chkbox_"+n+"']:checked").length;  
+	    	$(document).ready(function(){
+	    		$('#alert').click(function(){
+	    			var cnt = $("input[type='checkbox'][class='class_"+n+"']:checked").length
+	    			alert(cnt);
+	    		})
+	    	})
+	    </script>
+</head>
+<body>
+	<input type="checkbox" class="class_1">
+	<input type="checkbox" class="class_1">
+	<input type="checkbox" class="class_1">
+	<input type="checkbox" class="class_2">
+	<input type="checkbox" class="class_3">
+	<input type="checkbox" class="class_4">
+	<input type="button" id="alert">
+</body>
+</html>
